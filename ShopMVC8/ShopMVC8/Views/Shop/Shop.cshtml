@@ -1,0 +1,51 @@
+@model IEnumerable<ShopMVC8.ViewModels.HangHoaVM>
+@{
+    ViewData["Title"] = "Shop";
+    Layout = "~/Views/Shared/_DanhSachHangHoa.cshtml";
+}
+<!-- HERO SECTION-->
+  @section HeroSection
+  {
+    <section class="py-5 bg-light">
+          <div class="container">
+            <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
+              <div class="col-lg-6">
+                <h1 class="h2 text-uppercase mb-0">Shop</h1>
+              </div>
+              <div class="col-lg-6 text-lg-end">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-lg-end mb-0 px-0 bg-light">
+                    <li class="breadcrumb-item"><a class="text-dark" asp-controller="Home" asp-action="Index" >Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a class="text-dark" asp-controller="Shop" asp-action="Index"> Shop</a></li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+    </section>
+  }
+
+<!-- PAGINATION-->
+  @section Pagination
+  {
+    <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center justify-content-lg-end">
+                    <li class="page-item mx-1"><a class="page-link" href="#!" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li class="page-item mx-1 active"><a class="page-link" href="#!">1</a></li>
+                    <li class="page-item mx-1"><a class="page-link" href="#!">2</a></li>
+                    <li class="page-item mx-1"><a class="page-link" href="#!">3</a></li>
+                    <li class="page-item ms-1"><a class="page-link" href="#!" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  </ul>
+    </nav>
+  }
+<!-- Number -->
+  @section SoSanPham
+  {
+    <div class="col-lg-6 mb-2 mb-lg-0">
+     <p class="text-sm text-muted mb-0"> Showing @Model.Count() results</p>
+    </div>
+  }
+<!-- Shop Listing -->
+@await Html.PartialAsync("ProductItem", Model)
+
+

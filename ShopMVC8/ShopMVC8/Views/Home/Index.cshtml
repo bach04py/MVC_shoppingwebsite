@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ShopMVC8.Data.HangHoa>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    var randomItems = Model.OrderBy(x => Guid.NewGuid()).Take(8);   
+}
+      <!-- HERO SECTION-->
+      <div class="container">
+        <section class="hero pb-3 bg-cover bg-center d-flex align-items-center" style="background: url(/img/hero-banner-alt.jpg)">
+          <div class="container py-5">
+            <div class="row px-4 px-lg-5">
+              <div class="col-lg-6">
+                <p class="text-muted small text-uppercase mb-2">Shop-MVC-DEMO</p>
+                <h1 class="h2 text-uppercase mb-3">Đồ án thực hành nhập môn SE104 </h1><a class="btn btn-dark"  asp-controller ="Shop" asp-action="Index" >Go to shop!</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- TRENDING PRODUCTS-->
+        <section class="py-5">
+          <header>
+            <p class="small text-muted small text-uppercase mb-1">Made the hard way</p>
+            <h2 class="h5 text-uppercase mb-4">Top trending products</h2>
+          </header>
+          <div class="row">
+          @if (randomItems != null)
+            {
+             @foreach (var item in randomItems)
+           {
+
+            <!-- PRODUCT-->
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+              <div class="product text-center">
+                <div class="position-relative mb-3">
+                  <div class="badge text-white bg-"></div><a class="d-block" asp-action="Detail" asp-controller="Shop" asp-route-id="@item.MaHh"><img class="img-fluid w-100" src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh"></a>
+                  <div class="product-overlay">
+                    <ul class="mb-0 list-inline">
+                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.MaHh">Add to cart</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <h6> <a class="reset-anchor" asp-action="Detail" asp-controller="Shop" asp-route-id="@item.MaHh">@item.TenHh</a></h6>
+                <p class="small text-muted">@item.DonGia</p>
+              </div>
+            </div>
+            }
+            }
+          </div>
+        </section>
+        <!-- SERVICES-->
+        <section class="py-5 bg-light">
+          <div class="container">
+            <div class="row text-center gy-3">
+              <div class="col-lg-4">
+                <div class="d-inline-block">
+                  <div class="d-flex align-items-end">
+                    <svg class="svg-icon svg-icon-big svg-icon-light">
+                      <use xlink:href="#delivery-time-1"> </use>
+                    </svg>
+                    <div class="text-start ms-3">
+                      <h6 class="text-uppercase mb-1">Free shipping</h6>
+                      <p class="text-sm mb-0 text-muted">Free shipping worldwide</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="d-inline-block">
+                  <div class="d-flex align-items-end">
+                    <svg class="svg-icon svg-icon-big svg-icon-light">
+                      <use xlink:href="#helpline-24h-1"> </use>
+                    </svg>
+                    <div class="text-start ms-3">
+                      <h6 class="text-uppercase mb-1">24 x 7 service</h6>
+                      <p class="text-sm mb-0 text-muted">Free shipping worldwide</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="d-inline-block">
+                  <div class="d-flex align-items-end">
+                    <svg class="svg-icon svg-icon-big svg-icon-light">
+                      <use xlink:href="#label-tag-1"> </use>
+                    </svg>
+                    <div class="text-start ms-3">
+                      <h6 class="text-uppercase mb-1">Festivaloffers</h6>
+                      <p class="text-sm mb-0 text-muted">Free shipping worldwide</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- NEWSLETTER-->
+        <section class="py-5">
+          <div class="container p-0">
+            <div class="row gy-3">
+              <div class="col-lg-6">
+                <h5 class="text-uppercase">Đồ án môn học nhập môn công nghệ phần mềm</h5>
+                <p class="text-sm text-muted mb-0"> Nhóm 4 người </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>

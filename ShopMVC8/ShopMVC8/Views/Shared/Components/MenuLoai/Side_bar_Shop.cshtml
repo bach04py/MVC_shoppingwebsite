@@ -1,0 +1,24 @@
+@model IEnumerable<ShopMVC8.ViewModels.MenuLoaiVM>
+              <!-- SHOP SIDEBAR-->
+              <div class="col-lg-3 order-2 order-lg-1">
+                <h5 class="text-uppercase mb-4">Danh mục</h5>
+                <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase fw-bold">Electronics</strong></div>
+                <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal mb-5">
+                  @foreach (var item in Model){
+                  <li class="mb-2"><a class="reset-anchor" asp-controller="Shop" asp-action="Index" asp-route-loai="@item.MaLoai">@item.TenLoai</a> <span> (@item.SoLuong)</span> </li>              
+                   }
+                </ul>
+                <form asp-controller="Shop" asp-action="Sort" >
+                <h6 class="text-uppercase mb-4">Price range</h6>
+                <div class="price-range pt-4 mb-5">
+                  <div id="range"></div>
+                  <div class="row pt-2">
+                    <div class="col-6"><strong class="small fw-bold text-uppercase">From</strong></div>
+                    <div class="col-6 text-end"><strong class="small fw-bold text-uppercase">To</strong></div>
+                  </div>
+                      <input type="hidden" name="fromPrice" id="fromPrice" value="0">
+                      <input type="hidden" name="toPrice" id="toPrice" value="0" >
+                      <button type="submit" class="btn btn-primary">Sort</button>
+                </div>
+                </form>
+              </div>

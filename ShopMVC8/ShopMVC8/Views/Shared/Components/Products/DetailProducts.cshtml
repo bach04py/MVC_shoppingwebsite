@@ -1,0 +1,18 @@
+@model IEnumerable<ShopMVC8.ViewModels.HangHoaVM>
+@foreach(var item in Model)
+{
+                     <!-- PRODUCT-->
+            <div class="col-lg-3 col-sm-6">
+              <div class="product text-center skel-loader">
+                <div class="d-block mb-3 position-relative"><a class="d-block" asp-action="Detail" asp-controller="Shop" asp-route-id="@item.MaHh"><img class="img-fluid w-100" src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh"></a>
+                  <div class="product-overlay">
+                    <ul class="mb-0 list-inline">
+                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.MaHh">Add to cart</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <h6> <a class="reset-anchor" asp-action="Detail" asp-controller="Shop" asp-route-id="@item.MaHh"> @item.TenHh</a></h6>
+                <p class="small text-muted">@item.DonGia</p>
+              </div>
+            </div>
+}

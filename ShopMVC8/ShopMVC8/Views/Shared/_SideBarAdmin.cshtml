@@ -1,0 +1,87 @@
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="~/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Danh mục -->
+          <li class="nav-item">
+            <a asp-controller="AdminCategory" asp-action="Index" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Danh mục
+              </p>
+            </a>
+          </li>
+          @* <!--  Tin tức -->
+          <li class="nav-item">
+            <a href="/news" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Tin tức
+              </p>
+            </a>
+          </li>
+          <!-- Bài viết -->
+          <li class="nav-item">
+            <a href="/post" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Bài viết
+              </p>
+            </a>
+          </li>
+          <!-- Quảng cáo -->
+          <li class="nav-item">
+            <a href="/post" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Quảng cáo
+              </p>
+            </a>
+          </li> *@
+          <!-- Quản lí sản phẩm -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Quản lí 
+               <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-controller="AdminCategory" asp-action="Index" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh mục sản phẩm </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-controller="AdminCustomer" asp-action="Index" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Khách hàng đăng kí</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Cấu hình hệ thống -->
+          @* <li class="nav-item">
+            <a href="/post" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                 Cấu hình hệ thống
+              </p>
+            </a>
+          </li> *@
+
+        </ul>
+      </nav>
+    </div>

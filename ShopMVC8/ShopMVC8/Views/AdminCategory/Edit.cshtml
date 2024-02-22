@@ -1,0 +1,135 @@
+@model ShopMVC8.Data.HangHoa
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+    Layout = "_LayoutAdmin";
+}
+
+@section LeftNavbar
+{
+    <ul class="navbar-nav">
+      <li class="nav-item">
+    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/Admin" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/Admin/Category" class="nav-link">Danh mục</a>
+      </li> 
+    </ul>
+}
+
+<!-- Nội dung trang chỉnh sửa -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Chỉnh sửa sản phẩm</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Danh mục </a></li>
+                    <li class="breadcrumb-item active">Chỉnh sửa</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nội dung chính -->
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Chỉnh sửa sản phẩm</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-controller="AdminCategory" asp-action="EditConfirmed" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.MaHh" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.MaHh" class="form-control" readonly />
+                            <span asp-validation-for="@Model.MaHh" class="text-danger"></span>
+                        </div>
+
+                        <!-- Thêm các trường cần chỉnh sửa -->
+                        <!-- Ví dụ: -->
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.TenHh" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.TenHh" class="form-control" />
+                            <span asp-validation-for="@Model.TenHh" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.TenAlias" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.TenAlias" class="form-control" />
+                            <span asp-validation-for="@Model.TenAlias" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.MaLoai" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.MaLoai" class="form-control" />
+                            <span asp-validation-for="@Model.MaLoai" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.MoTaDonVi" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.MoTaDonVi" class="form-control" />
+                            <span asp-validation-for="@Model.MoTaDonVi" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.DonGia" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.DonGia" class="form-control" />
+                            <span asp-validation-for="@Model.DonGia" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Hinh" class="form-label">Chọn hình ảnh:</label>
+                            <input type="file" class="form-control" asp-for="@Model.Hinh" />
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.NgaySx" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.NgaySx" class="form-control" />
+                            <span asp-validation-for="@Model.NgaySx" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.GiamGia" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.GiamGia" class="form-control" />
+                            <span asp-validation-for="@Model.GiamGia" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.MoTa" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.MoTa" class="form-control" />
+                            <span asp-validation-for="@Model.MoTa" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-item w-100">
+                            <label asp-for="@Model.MaNcc" class="form-label my-3"></label><sup>*</sup>
+                            <input asp-for="@Model.MaNcc" class="form-control" />
+                            <span asp-validation-for="@Model.MaNcc" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <!-- Thông tin sản phẩm -->
+        </div>
+    </div>
+</section>

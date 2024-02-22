@@ -1,0 +1,5 @@
+@model IEnumerable<ShopMVC8.ViewModels.HangHoaVM>
+@foreach(var item in Model)
+{
+<div class="swiper-slide h-auto swiper-thumb-item mb-3"><img class="w-100" src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh"></div>
+}

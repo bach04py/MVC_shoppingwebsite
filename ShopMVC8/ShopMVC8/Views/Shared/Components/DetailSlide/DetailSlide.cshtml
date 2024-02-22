@@ -1,0 +1,5 @@
+@model IEnumerable<ShopMVC8.ViewModels.HangHoaVM>
+@foreach(var item in Model)
+{
+    <div class="swiper-slide h-auto"><a class="glightbox product-view" href="~/Hinh/HangHoa/@item.Hinh" data-gallery="gallery2" data-glightbox="Product item 2"><img class="img-fluid" src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh"></a></div>
+}

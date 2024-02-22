@@ -1,0 +1,29 @@
+@model ShopMVC8.Data.HangHoa
+@{
+    ViewData["Title"] = "Thêm hàng loạt";
+    Layout = "_LayoutAdmin";
+}
+
+@section LeftNavbar
+{
+    <ul class="navbar-nav">
+      <li class="nav-item">
+    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/Admin" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/Admin/Category" class="nav-link">Danh mục</a>
+      </li> 
+    </ul>
+}
+      <div class="card-body">
+<form method="post" enctype="multipart/form-data" asp-controller="AdminCategory" asp-action="AdmoreConfirmed">
+    <div class="mb-3">
+    <label for="file" class="form-label">Chọn tệp excel:</label>
+    <input type="file" name="file" id="file" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary" value="Import" >Thêm từ excel</button>
+</form>
+      </div>
